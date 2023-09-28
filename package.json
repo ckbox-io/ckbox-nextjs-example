@@ -1,0 +1,35 @@
+{
+  "name": "nextjs-ckbox",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ckbox/components": "^2.1.0",
+    "@ckbox/core": "^2.1.0",
+    "@ckeditor/ckeditor5-build-classic": "^39.0.2",
+    "@ckeditor/ckeditor5-react": "^6.1.0",
+    "ckbox": "^2.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "latest",
+    "next-auth": "^4.23.1",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}
