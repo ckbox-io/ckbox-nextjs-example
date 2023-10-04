@@ -2,7 +2,7 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import { getServerSession } from 'next-auth';
-import type { Asset } from '@ckbox/core';
+import type { Asset, Props } from '@ckbox/core';
 import Layout from '@/components/Layout';
 import Page from '@/components/Page';
 import Button from '@/components/Button';
@@ -34,6 +34,12 @@ export default function FilePicker() {
         setAssets(assets);
     };
 
+    const ckboxProps: Props = {
+        assets: { onChoose: handleChoose },
+        dialog: { open, onClose: handleClose },
+        tokenUrl: `${process.env.NEXT_PUBLIC_URL}/api/ckbox`
+    };
+
     return (
         <Layout>
             <Page>
@@ -51,11 +57,7 @@ export default function FilePicker() {
                     <div>
                         <Button onClick={handleOpen}>Choose assets</Button>
                     </div>
-                    <CKBox
-                        assets={{ onChoose: handleChoose }}
-                        dialog={{ open, onClose: handleClose }}
-                        tokenUrl={`${process.env.NEXT_PUBLIC_URL}/api/ckbox`}
-                    />
+                    <CKBox {...ckboxProps} />
                 </section>
                 <section className="flex flex-col gap-3">
                     <ul>

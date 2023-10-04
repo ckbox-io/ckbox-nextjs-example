@@ -11,37 +11,36 @@ import 'ckbox/dist/styles/themes/lark.css';
 import 'ckbox/dist/ckbox';
 
 export default function CKEditor() {
+    const config = {
+        ckbox: {
+            tokenUrl: `${process.env.NEXT_PUBLIC_URL}/api/ckbox`,
+            theme: 'lark'
+        },
+        toolbar: [
+            'ckbox',
+            'imageUpload',
+            '|',
+            'heading',
+            '|',
+            'undo',
+            'redo',
+            '|',
+            'bold',
+            'italic',
+            '|',
+            'blockQuote',
+            'indent',
+            'link',
+            '|',
+            'bulletedList',
+            'numberedList'
+        ]
+    };
+
     return (
         <>
             <style>{`.ck-editor__editable_inline { min-height: 400px; }`}</style>
-            <CKEditorComponent
-                editor={ClassicEditor}
-                config={{
-                    ckbox: {
-                        tokenUrl: `${process.env.NEXT_PUBLIC_URL}/api/ckbox`,
-                        theme: 'lark'
-                    },
-                    toolbar: [
-                        'ckbox',
-                        'imageUpload',
-                        '|',
-                        'heading',
-                        '|',
-                        'undo',
-                        'redo',
-                        '|',
-                        'bold',
-                        'italic',
-                        '|',
-                        'blockQuote',
-                        'indent',
-                        'link',
-                        '|',
-                        'bulletedList',
-                        'numberedList'
-                    ]
-                }}
-            />
+            <CKEditorComponent editor={ClassicEditor} config={config} />
         </>
     );
 }
