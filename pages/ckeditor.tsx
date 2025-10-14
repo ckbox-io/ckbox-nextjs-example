@@ -6,8 +6,8 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import dynamic from 'next/dynamic';
 
 // Use client-side rendering for CKEditor component
-const CKEditor = dynamic(
-    () => import('@/components/CKEditor').then((e) => e.default),
+const CKEditorComponent = dynamic(
+    () => import('@/components/CKEditorComponent').then((e) => e.default),
     {
         ssr: false
     }
@@ -28,7 +28,7 @@ export default function CKEditorPage() {
                     CKBox plugin, CKEditor will upload files directly to your
                     CKBox environment. Use icon in the top-left corner of the
                     editor to open CKBox as a file picker.
-                    <CKEditor />
+                    <CKEditorComponent />
                 </section>
             </Page>
         </Layout>
